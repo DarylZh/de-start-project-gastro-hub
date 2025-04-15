@@ -8,7 +8,7 @@ WITH menu_cte AS (
         (p.price::numeric) AS price
     FROM
         cafe.restaurants r,
-        jsonb_each_text(r.menu) AS p(pizza_name, price)
+        jsonb_each(r.menu -> 'Пицца') AS p(pizza_name, price)  -- Извлечение названий и цен пицц
     WHERE
         r.type = 'pizzeria'
 ),
