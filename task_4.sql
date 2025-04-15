@@ -12,7 +12,7 @@ WHERE table_name = 'restaurants';
 WITH pizza_counts AS (
     SELECT
         r.cafe_name,
-        jsonb_array_length(r.menu -> 'pizzas') AS pizza_count
+        jsonb_array_length(r.menu -> 'Пицца') AS pizza_count
     FROM
         cafe.restaurants r
     WHERE
